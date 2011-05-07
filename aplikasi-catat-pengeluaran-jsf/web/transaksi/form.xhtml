@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <body>
+
+        <ui:composition template="./../template/utama.xhtml">
+
+            <ui:define name="content">
+                <h2 class="title"><a href="#">Entri Transaksi</a></h2>
+                <div class="entry">
+                    <f:view>
+                        <h:form>
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="kategori" value="Kategori"></h:outputLabel>
+                                <h:selectOneListbox size="1" id="kategori" 
+                                                    value="#{transaksiController.transaksi.kategori}">
+                                    <f:selectItem itemLabel="Pilih kategori .." noSelectionOption="true" />
+                                    <f:selectItems 
+                                        value="#{kategoriController.semuaKategori}" 
+                                        var="k"	itemLabel="#{k.nama}" itemValue="#{k}" />
+                                </h:selectOneListbox>
+                                <h:message for="kategori"/>
+                                
+                                
+                                <h:outputLabel for="tanggal" value="Tanggal"></h:outputLabel>
+                                <p:calendar id="tanggal" 
+                                             value="#{transaksiController.transaksi.waktu}"
+                                             required="true"
+                                             requiredMessage="Tanggal harus diisi"
+                                             >
+                                </p:calendar>
+                                <h:message for="tanggal"/>
+                                
+                                <h:outputLabel for="keterangan" value="Keterangan"></h:outputLabel>
+                                <h:inputText id="keterangan" 
+                                             value="#{transaksiController.transaksi.keterangan}"
+                                             required="true"
+                                             requiredMessage="Keterangan harus diisi"
+                                             >
+                                </h:inputText>
+                                <h:message for="keterangan"/>
+                                
+                                <h:outputLabel for="nilai" value="Nilai"></h:outputLabel>
+                                <h:inputText id="nilai" 
+                                             value="#{transaksiController.transaksi.nilai}"></h:inputText>
+                                <h:message for="nilai"/>
+                                
+                                
+                                
+                                <h:panelGroup>
+                                    <h:commandButton value="Simpan" action="#{transaksiController.simpan}"></h:commandButton>
+                                    <h:commandButton value="Batal" action="#{transaksiController.batal}" immediate="true"></h:commandButton>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+                    </f:view>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

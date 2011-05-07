@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../template/utama.xhtml">
+
+            <ui:define name="content">
+                <h2 class="title"><a href="#">Daftar Kategori</a></h2>
+                <div class="entry">
+                    <f:view>
+                        <h:form>
+                            
+                            <h:commandButton action="#{kategoriController.tambah}" 
+                                             value="Tambah Kategori Baru"/>
+                            
+                            <h:dataTable value="#{kategoriController.semuaKategori}" 
+                                         var="kat">
+                                <h:column>
+                                    <f:facet name="header">Kode</f:facet>
+                                    <h:outputText value="#{kat.kode}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Nama</f:facet>
+                                    <h:outputText value="#{kat.nama}"/>
+                                </h:column>
+                                <h:column>
+                                    <h:commandLink value="edit" 
+                                                   action="#{kategoriController.edit}"/>
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </h:form>
+                    </f:view>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>CreateKategori</servlet-name>
+        <servlet-class>pengeluaran.servlet.CreateKategori</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DaftarKategori</servlet-name>
+        <servlet-class>pengeluaran.servlet.DaftarKategori</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DaftarKategoriJSON</servlet-name>
+        <servlet-class>pengeluaran.servlet.DaftarKategoriJSON</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateKategori</servlet-name>
+        <url-pattern>/kategori/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DaftarKategori</servlet-name>
+        <url-pattern>/kategori/list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DaftarKategoriJSON</servlet-name>
+        <url-pattern>/kategori/json</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

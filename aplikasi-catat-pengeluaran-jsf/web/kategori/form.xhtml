@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../template/utama.xhtml">
+
+            <ui:define name="content">
+                <h2 class="title"><a href="#">Entri Kategori</a></h2>
+                <div class="entry">
+                    <f:view>
+                        <h:form>
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="kode" value="Kode"></h:outputLabel>
+                                <h:inputText id="kode" 
+                                             value="#{kategoriController.kategori.kode}"
+                                             required="true"
+                                             requiredMessage="Kode Kategori harus diisi"
+                                             >
+                                    <f:validator 
+                                        validatorId="pengeluaran.validator.KodeKategoriValidator"/>
+                                </h:inputText>
+                                <h:message for="kode"/>
+                                
+                                <h:outputLabel for="nama" value="Nama"></h:outputLabel>
+                                <h:inputText id="nama" value="#{kategoriController.kategori.nama}"></h:inputText>
+                                <h:message for="nama"/>
+                                
+                                <h:panelGroup>
+                                    <h:commandButton value="Simpan" action="#{kategoriController.simpan}"></h:commandButton>
+                                    <h:commandButton value="Batal" action="#{kategoriController.batal}"></h:commandButton>
+                                </h:panelGroup>
+                            </h:panelGrid>
+                        </h:form>
+                    </f:view>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

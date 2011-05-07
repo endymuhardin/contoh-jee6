@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./../style.css" rel="stylesheet" type="text/css" media="screen" />
+    </h:head>
+
+    <h:body>
+
+
+        <div id="wrapper">
+            <div id="header">
+                <div id="logo">
+                    <h1><a href="#">Communication</a></h1>
+                    <p> Template design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></p>
+                </div>
+            </div>
+            <!-- end #header -->
+            <div id="menu">
+                <ul>
+                    <li class="current_page_item"><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Links</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <!-- end #menu -->
+            <div id="page">
+                <div id="page-bgtop">
+                    <div id="page-bgbtm">
+                        <div id="content">
+                            <div class="post">
+                                <div class="post-bgtop">
+                                    <div class="post-bgbtm">
+                                        <ui:insert name="content">Content</ui:insert>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="clear: both;">&nbsp;</div>
+                        </div>
+                        <!-- end #content -->
+                        <div id="sidebar">
+                            <ul>
+                                <li>
+                                    <h2>Aplikasi Catat Pengeluaran</h2>
+                                    <p>Catat dan kelompokkan transaksi Anda di sini.</p>
+                                </li>
+                                <li>
+                                    <h2>Fitur</h2>
+                                    <ul>
+                                        <li><a href="../kategori/list.xhtml">Kategori</a><span>Kategori Transaksi</span></li>
+                                        <li><a href="../transaksi/list.xhtml">Transaksi</a><span>Entri Transaksi</span></li>
+                                        <li><a href="#">Laporan</a><span>Berbagai laporan dan rekap</span> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- end #sidebar -->
+                        <div style="clear: both;">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+            <!-- end #page -->
+        </div>
+        <div id="footer">
+            <p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p>
+        </div>
+        <!-- end #footer -->
+
+    </h:body>
+
+</html>

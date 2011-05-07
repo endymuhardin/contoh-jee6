@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <body>
+
+        <ui:composition template="./../template/utama.xhtml">
+
+            <ui:define name="content">
+                <h2 class="title"><a href="#">Rekap Transaksi</a></h2>
+                <div class="entry">
+                    <f:view>
+                        <h:form>
+                            <h:commandButton value="Entri Transaksi" action="form?faces-redirect=true"/>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Cari Transaksi"/>
+                                <h:outputText value=""/>
+                                
+                                <h:outputLabel for="mulai" value="Mulai"></h:outputLabel>
+                                <p:calendar id="mulai" 
+                                             value="#{transaksiController.mulai}">
+                                </p:calendar>
+                                <h:outputLabel for="sampai" value="Sampai"></h:outputLabel>
+                                <p:calendar id="sampai" 
+                                             value="#{transaksiController.sampai}">
+                                </p:calendar>
+                                
+                                <h:panelGroup>
+                                    <h:commandButton value="Cari" 
+                                                     action="#{transaksiController.cari}"/>
+                                    <h:commandButton value="Reset" 
+                                                     action="#{transaksiController.reset}"/>
+                                </h:panelGroup>
+                                <h:outputText value=""/>
+                            </h:panelGrid>
+                                                       
+                            <p:dataTable value="#{transaksiController.daftarTransaksi}" 
+                                         var="t" rendered="#{!transaksiController.daftarTransaksi.isEmpty()}"
+                                         paginator="true" rows="10"  
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                        rowsPerPageTemplate="5,10,15"
+                                        paginatorPosition="bottom"
+                                        >
+                                <p:column sortBy="#{t.waktu}">
+                                    <f:facet name="header">Tanggal</f:facet>
+                                    <h:outputText value="#{t.waktu}">
+                                        <f:convertDateTime 
+                                            pattern="EEEEEEEE, dd MMM yyyy" 
+                                            locale="#{transaksiController.locale}"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">Keterangan</f:facet>
+                                    <h:outputText value="#{t.keterangan}"/>
+                                </p:column>
+                                <p:column sortBy="#{t.nilai}">
+                                    <f:facet name="header">Nilai</f:facet>
+                                    <h:outputText value="#{t.nilai}">
+                                        <f:convertNumber 
+                                            locale="#{transaksiController.locale}"
+                                            currencySymbol="Rp. "
+                                            type="currency"
+                                        />
+                                    </h:outputText>
+                                </p:column>
+                                
+                            </p:dataTable>
+                        </h:form>
+                    </f:view>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
